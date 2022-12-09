@@ -42,6 +42,7 @@ class MyStack extends TerraformStack {
     });
 
     const rails = new google.cloudRunService.CloudRunService(this, 'rails', {
+      autogenerateRevisionName: true,
       location: region,
       name: 'rails',
       template: {
