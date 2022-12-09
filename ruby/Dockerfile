@@ -4,4 +4,4 @@ COPY app/Gemfile /app/Gemfile
 COPY app/Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY app/ /app/
-ENTRYPOINT ["rails", "server"]
+ENTRYPOINT rails server -b 0.0.0.0 -p $PORT

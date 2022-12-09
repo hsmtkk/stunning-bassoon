@@ -4,6 +4,7 @@ steps:
     args:
       - --cache=true
       - --cache-ttl=168h
+      - --context=ruby
       - --dockerfile=ruby/Dockerfile
       - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/registry/rails:$COMMIT_SHA
 substitutions:
