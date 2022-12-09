@@ -17,6 +17,13 @@ class MyStack extends TerraformStack {
       region,
     });
 
+    new google.secretManagerSecret.SecretManagerSecret(this, 'rails-secret', {
+      secretId: 'secret-key-base',
+      replication: {
+        automatic: true,
+      },
+    });
+
     new google.cloudbuildTrigger.CloudbuildTrigger(this, 'trigger', {
       filename: 'gcp/cloudbuild.yaml',
       github: {
