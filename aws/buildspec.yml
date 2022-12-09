@@ -10,9 +10,9 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -f ruby/Dockerfile -t rails:latest ruby
-      - docker tag rails:latest 162257484723.dkr.ecr.ap-northeast-1.amazonaws.com/rails:latest
+      - docker tag rails:latest 162257484723.dkr.ecr.ap-northeast-1.amazonaws.com/registy/rails:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 162257484723.dkr.ecr.ap-northeast-1.amazonaws.com/rails:latest
+      - docker push 162257484723.dkr.ecr.ap-northeast-1.amazonaws.com/registry/rails:latest
