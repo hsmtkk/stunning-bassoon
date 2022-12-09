@@ -1,0 +1,10 @@
+---
+steps:
+  - name: gcr.io/kaniko-project/executor:latest
+    args:
+      - --cache=true
+      - --cache-ttl=168h
+      - --dockerfile=ruby/Dockerfile
+      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/registry/rails:$COMMIT_SHA
+substitutions:
+  _REGION: us-central1
