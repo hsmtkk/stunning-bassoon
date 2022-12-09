@@ -7,5 +7,14 @@ steps:
       - --context=ruby
       - --dockerfile=ruby/Dockerfile
       - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/registry/rails:$COMMIT_SHA
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - rails
+      - --allow-unauthenticated
+      - --image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/registry/rails:$COMMIT_SHA
+      - --region=${_REGION}
 substitutions:
   _REGION: us-central1
